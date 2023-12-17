@@ -1,35 +1,39 @@
-const SLICE_COUNT = 10;
+const SLICE_COUNT = 18;
 
 function setup_pScope(pScope){
-  pScope.output_mode(ANIMATED_DISK);
+  pScope.output_mode(OUTPUT_GIF(1000));
   pScope.scale_for_screen(true);
   pScope.draw_layer_boundaries(false);
-  pScope.set_direction(CCW);
+  pScope.set_direction(CW);
   pScope.set_slice_count(SLICE_COUNT);
 }
 
 function setup_layers(pScope){
 
-  new PLayer(null, 220);  //lets us draw the whole circle background, ignoring the boundaries
+  new PLayer(null, 246, 161, 178, 150);  //lets us draw the whole circle background, ignoring the boundaries
 
-  var layer1 = new PLayer(faces);
+  var layer1 = new PLayer(Heart);
   layer1.mode( SWIRL(5) );
-  layer1.set_boundary( 200, 1000 );
+  layer1.set_boundary( 200, 800 );
 
-  var layer2 = new PLayer(squares);
-  layer2.mode( RING );
-  layer2.set_boundary( 0, 400 );
+  //var layer2 = new PLayer(big heart);
+  //layer2.mode( RING );
+  //layer2.set_boundary( 0, 400 );
+
+  
 }
 
-function faces(x, y, animation, pScope){
-  
-  scale(animation.frame*2);
+function Heart(x, y, animation, pScope){
+  fill(223, 61, 108);
+  stroke (223, 61, 108); 
+//scale(animation.frame*2);
+scale (1.5)
 
-  ellipse(0,0,50,50); // draw head
-  fill(30);
-  ellipse(-10,-10,10,10); //draw eye
-  ellipse(10,-10,10,10); // draw eye
-  arc(0,10,20,10,0,180); // draw mouth
+  ellipse(66.6,66.6,20,20); 
+  ellipse (83.2,66.6,20,20);
+  triangle (91.2,72.6,75,95,58.6,72.6);
+  
+  
 
 }
 
@@ -47,3 +51,8 @@ function squares(x, y, animation, pScope){
   rect(-10,-300-animation.wave()*50,20,20) // .wave is a cosine wave btw
 
 }
+
+
+
+
+
