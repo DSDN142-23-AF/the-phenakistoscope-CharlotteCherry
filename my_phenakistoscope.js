@@ -63,8 +63,11 @@ function outsidering(x, y, animation, pScope){
 }
 
 function bow (x,y,animation,pScope){
-  scale(2);
-  pScope.draw_image("bow",x,y);
+  scale(1);
+  pScope.draw_image("bow",0,30);
+
+ 
+  
 }
 
 
